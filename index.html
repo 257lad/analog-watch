@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="watch">
+            <div class="numbers">
+                <div class="num one">1</div>
+                <div class="num two">2</div>
+                <div class="num three">3</div>
+                <div class="num four">4</div>
+                <div class="num five">5</div>
+                <div class="num six">6</div>
+                <div class="num seven">7</div>
+                <div class="num eight">8</div>
+                <div class="num nine">9</div>
+                <div class="num ten">10</div>
+                <div class="num eleven">11</div>
+                <div class="num twelve">12</div>
+            </div>
+            <div class="dot"></div>
+            <div class="hand hour" id="hour"><div class="ind"></div></div>
+            <div class="hand minute" id="minute"><div class="ind"></div></div>
+            <div class="hand second" id="second"></div>
+        </div>
+    </div>
+
+
+    <script>
+        let hourH = document.getElementById("hour");
+        let minH = document.getElementById("minute");
+        let secH =  document.getElementById("second");
+
+        clock = () => {
+            let time = new Date();
+            let hour = (time.getHours()) / 12;
+            let min = (time.getMinutes()) / 60;
+            let sec = (time.getSeconds()) / 60;
+
+            rotateClockHand(hourH, hour);
+            rotateClockHand(minH, min);
+            rotateClockHand(secH, sec);
+        }
+
+        rotateClockHand = (Element, rotation) =>{
+            Element.style.setProperty('--rotate', rotation * 360);
+        }
+        setInterval(clock, 1000)
+    </script>
+</body>
+</html>
